@@ -13,7 +13,7 @@ GATEWAY_URL = os.getenv("GATEWAY_URL", "http://localhost:8000")
 if "token" not in st.session_state:
     st.session_state.token = None
 
-st.title("Social Listening Dashboard")
+st.title("Listen AI Dashboard")
 st.caption("Track sentiment, keywords, trends, and example posts by keyword filters.")
 
 with st.sidebar:
@@ -41,7 +41,7 @@ with st.sidebar:
 
 col1, col2 = st.columns(2)
 with col1:
-    include_input = st.text_input("Include keywords (comma-separated)", "")
+    include_input = st.text_input("Include keywords (comma-separated)", "機器人")
 with col2:
     exclude_input = st.text_input("Exclude keywords (comma-separated)", "")
 
