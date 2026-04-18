@@ -25,9 +25,10 @@ services:
       - "8001:8001"
   stat:
     build: ./stat
-    dns: 8.8.8.8
     ports:
       - "8002:8002"
     volumes:
       - ./data:/app/data
+    environment:
+      - SQLITE_PATH=/app/data/listenai.db
  
