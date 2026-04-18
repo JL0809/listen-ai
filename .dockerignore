@@ -1,0 +1,6 @@
+# .dockerignore
+**/node_modules
+**/__pycache__
+**/*.db
+.git
+.venv

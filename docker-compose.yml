@@ -1,0 +1,33 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - GATEWAY_URL=http://gateway:8000
+    depends_on:
+      - gateway
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - STAT_URL=http://stat:8002
+      - NLP_URL=http://nlp:8001
+    depends_on:
+      - stat
+      - nlp
+
+  nlp:
+    build: ./nlp
+    ports:
+      - "8001:8001"
+  stat:
+    build: ./stat
+    dns: 8.8.8.8
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./data:/app/data
+ 
